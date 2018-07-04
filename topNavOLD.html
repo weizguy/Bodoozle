@@ -1,0 +1,261 @@
+<!--WSS
+/******************************************************************************
+Program Name: topNav.htm
+Description/Purpose: Top Navigation Bar (UX Major Change)
+Date Created: 05/30/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* TOP NAV CSS */
+.topNav {
+  height: 40px!important;
+  color: white!important;
+}
+.left {
+  margin-left: 130px;
+}
+
+.the-header {
+  width: 100%;
+  position: fixed;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom, #055ba6 0%,#0558a0 0%,#03457f 27%,#012c52 99%);
+  z-index: 100;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 0 20px;
+}
+
+.klogo {
+  margin: 0 10px!important;
+  font-size: 1.3rem!important;
+}
+
+.klogo a {
+  text-decoration: none!important;
+  color: white!important;
+  cursor: pointer!important;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.navigation-items {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navigation-items {
+    display: block;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-item a {
+  text-decoration: none!important;
+  color: white!important;
+}
+
+.nav-item a:hover {
+  color: lightblue;
+}
+
+.btn-group .btn {
+  background: linear-gradient(to bottom, #055ba6 0%,#0558a0 0%,#03457f 27%,#012c52 99%);  
+  border: none;
+  outline: 0;
+  color: white;
+  padding: 2px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-group .btn:active,
+.btn-group .btn:focus,
+.btn-group .btn:hover {
+  background: linear-gradient(to top, #055ba6 0%,#0558a0 0%,#03457f 27%,#012c52 99%);
+  border: none;
+  color: lightblue;
+  outline: 0;
+}
+.btn {
+  height: 40px;
+}
+
+.selectedbtn {
+  background-image: linear-gradient(to top, #055ba6 0%,#0558a0 0%,#03457f 27%,#012c52 99%)!important;
+  border: none!important;
+  color: lightblue!important;
+  outline: 0!important;  
+}
+
+.fas:hover {
+  color: lightblue;
+}
+
+/* END TOP NAV CSS */
+</style>
+</head>
+<body>
+
+<script language="Speedscript">
+{Portal/login.i} 
+{admin/permit.i} 
+
+def var cCompName       as char no-undo.
+def var cUserName       as char no-undo.
+def var iUserSerial     as int no-undo.
+def var iCompNum        as int no-undo.
+
+find first userMaster no-lock where userMaster.Compnum = Logged-Comp-num and userMaster.LoginName = login-name.
+assign iUserSerial   = userMaster.UserSerial.
+assign iCompNum  = userMaster.CompNum.
+
+find first myoffice.Company where myoffice.Company.CompNum = iCompNum no-lock no-error.
+assign cCompName = myoffice.Company.CompName.
+
+find first userMaster no-lock where userMaster.UserSerial = iUserSerial no-error.
+assign cUserName = userMaster.FullName.
+
+run util/ProgStatistics.p("mmenu", iCompNum).
+</script>
+<div class="topNav">
+  <header class="the-header">
+    <div class="klogo">
+      <a href="">Kechie</a>
+    </div>
+
+
+    <div class="btn-group left">
+      <a href="#" id="modules"><button class="btn">Modules</button></a>
+      <a href="#" id="faq"><button class="btn">FAQ</button></a>
+      <a href="#" id="insights"><button class="btn">Insights</button></a>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="navigation-items">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" id="help" title="Kechie Help Request"><i class="fas fa-question-circle"></i></a></li>
+        <li>  </li>
+        <li class="nav-item"><a href="#" id="config" title="User Configuration"><i class="fas fa-cog"></i></a></li>
+        <li>  </li>
+        <li class="nav-item"><a href="#" id="user" title="Logged in as: `cUserName` - Click to logout"><i class="fas fa-user"></i></a></li>
+        <li> | </li>
+        <li class="nav-item">`cCompName`</li>
+      </ul>
+    </div>
+  </header>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+ </script>
+
+<script>
+$(document).ready(function() {
+  var nav = $('.nav-item > a');
+
+  nav.on('click', function(event) {
+    event.preventDefault();
+    var go = this.id;
+    openPage(go);
+  
+  });
+
+  var btn = $('.btn-group > a');
+
+  btn.on('click', function(event) {
+    event.preventDefault();
+    var go = this.id;
+    openPage(go);
+  
+  });
+
+  function openPage(page) {
+    switch(page) {
+      case 'help':
+        var query = "../helpreq/helpreq.htm?ipPop=1&opMode=Add";
+        window.open(query,'help','width=740,height=500,top=138,left=220,status,resizable=yes,scrollbars=1'); 
+        break;
+      case 'config':
+        if($('#insights > .btn').hasClass('selectedbtn')) {
+          $('#modNav').load('insightsNav.htm');
+        } else if($('#modules > .btn').hasClass('selectedbtn')) {
+          $('#modNav').load('moduleNav.htm');
+        } else if($('#faq > .btn').hasClass('selectedbtn')) {
+          $('#modNav').load('faqNav.htm');
+        }  
+        $('#main').load('../util/userenvself.htm?opmode=view'); 
+        break;
+      case 'user':
+        $('#main').load('../Portal/logout.p'); 
+        break;
+      case 'modules':
+        $('#modules > .btn').addClass('selectedbtn');
+        $('#insights > .btn').removeClass('selectedbtn');
+        $('#faq > .btn').removeClass('selectedbtn');
+        $('#sideNav').css('width', '220px');
+        $('#main').css('left', '225px');
+        $('#navleft').show();
+        $('#slideRight').hide();
+        $('#slideLeft').show();
+        $('#modNav').load('moduleNav.htm');
+        $('#main').load('welcome.htm'); 
+        break;
+      case 'insights':
+        $('#insights > .btn').addClass('selectedbtn');
+        $('#modules > .btn').removeClass('selectedbtn');
+        $('#faq > .btn').removeClass('selectedbtn');
+        $('#sideNav').css('width', '220px');
+        $('#main').css('left', '225px');
+        $('#navleft').show();
+        $('#slideRight').hide();
+        $('#slideLeft').show();
+        $('#modNav').load('insightsNav.htm');
+        $('#main').load('insights.htm'); 
+        break;
+      case 'faq':
+        $('#faq > .btn').addClass('selectedbtn');
+        $('#modules > .btn').removeClass('selectedbtn');
+        $('#insights > .btn').removeClass('selectedbtn');
+        $('#sideNav').css('width', '220px');
+        $('#main').css('left', '225px');
+        $('#navleft').show();
+        $('#slideRight').hide();
+        $('#slideLeft').show();
+        $('#modNav').load('faqNav.htm');
+        $('#main').load('faq.htm'); 
+        break;
+    }
+  }
+})
+</script>
+
+</body>
+</html>
+

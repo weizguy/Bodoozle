@@ -1,0 +1,51 @@
+<!--WSS
+/******************************************************************************
+Program Name: main.htm
+Description/Purpose: Main page for (major UX Change)
+Date Created: 05/30/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bodoozle</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<script type="speedscript">
+</script>
+<style>
+body {
+  margin:0 auto;
+  overflow: hidden;
+ }
+ #main {
+  position: absolute;
+  top: 45px;
+  overflow: auto;
+  height: 99%;
+ }
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+ </script>
+</head>
+
+<script>
+$( document ).ready(function() {
+	$('#topNavBar').load('homeTopNav.html');
+	$('#main').load('welcome.html');
+});
+</script>
+
+<body>
+	<div id="topNavBar"></div>
+	<div id="main"></div>
+
+</body>
+</html>
+

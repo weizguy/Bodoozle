@@ -1,0 +1,155 @@
+<!--
+/******************************************************************************
+Program Name: welcome.html
+Description/Purpose: Main Display Page
+Date Created: 07/04/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<style scoped>
+.gymBanner {
+	height: 450px;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: top;
+	text-align: center;
+	background-image: url('images/gymbanner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}
+.foodBanner {
+	height: 450px;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: top;
+	text-align: center;
+	background-image: url('images/foodbanner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}				
+.whyBanner {
+	height: 450px;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: top;
+	text-align: center;
+	color: black;
+}				
+.centered {
+	padding-top: 50px;
+	text-align: center;
+	height: 400px;
+}				
+.left {
+	align: left;
+	width: 33%;
+}
+.center {
+	align: center;
+	width: 33%;
+}
+.right {
+	align: right;
+	width: 33%;
+}				
+@media screen and (max-width: 800px) {
+	.left, .center, .right {
+		width: 100%;
+	}
+}
+.gym {
+	background-color: black;
+	height: 250px;
+	padding: 0 20px;
+	border-radius: 20px;
+	opacity: .7;  
+	position: relative;
+	top: 10px;
+}				
+.food {
+	background-color: black;
+	height: 250px;
+	padding: 0 20px;
+	border-radius: 20px;
+	opacity: .7;  
+	position: relative;
+	top: 100px;
+}
+.title {
+	font-family: "adelle-sans",Arial Narrow,Geneva,Lucida Grande,Helvetica,sans-serif;
+	font-weight: 300;
+	font-size: 60px;
+	letter-spacing: 1px;
+}				
+.subtitle {
+	font-weight: 300;
+	font-size: 42px;
+	word-spacing: 5px;
+	padding-bottom: 15px;
+}				
+</style>
+</head>
+<body>
+	
+<div>
+		<section class="gymBanner">
+			<div class="gym">
+				<h1 class="title">Get Fit Now</h1>
+				<h2 class="subtitle">
+					track everything fitness in one place!
+				</h2>
+			</div>
+		</section>
+		<section class="whyBanner">
+			<div class="left">
+				<div class="centered">
+					<img height="100px" src="images/plate.png"/><br/>
+					<h2>Why Bodoozle?</h2>
+					<img width="100px" height="5px" src="images/line.jpg"/><br/>
+					<h3>Fitness can be unnecessarily complicated and inefficient. <br/>
+					We make it easy for healthy people to improve their fitness by <br/>
+					eliminating those complications.</h3>
+				</div>
+			</div>
+			<div class="center">
+				<div class="centered">
+					<img height="300px" src="images/award.jpg"/><br/>
+				</div>
+			</div>
+			<div class="right">
+				<div class="centered">
+					<img height="100px" src="images/heart.png"/><br/>
+					<h2>Users Love Bodoozle</h2>
+					<img width="100px" height="5px" src="images/line.jpg"/><br/>
+					<h3><em>"Bodoozle is amazing. <br/>
+					If it was around when I was bodybuilding, <br/>
+					I would have won 10 Olympias in a row!"</em><br/>
+					- Arnold Schwarzenegger</h3>
+				</div>
+			</div>
+		</section>
+		<section class="foodBanner">
+			<div class="food">
+				<h1 class="title">Food Tracker</h1>
+				<h2 class="subtitle">
+					get results faster by tracking your food intake
+				</h2>
+			</div>
+		</section>
+	</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,166 @@
+<!--WSS
+/******************************************************************************
+Program Name: userTopNav.html
+Description/Purpose: User Page Top Navigation
+Date Created: 07/04/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bodoozle</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<script type="speedscript">
+</script>
+<style>
+.btn-group .btn {
+  background-color: #1e282d; /* Green */
+  border: 1px solid #1e282d;
+  color: #bbc5ca;
+  padding: 18px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-group .btn:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+.btn-group .btn:hover {
+  background-color: #1B58A5;
+  color: white;
+}
+.btn-group .btn:active {
+  background-color: #1B58A5;
+  color: white;
+}
+.btn {
+  height: 55px;
+}
+.img {
+  width: 225px;
+  height: 40px;
+  padding-right: 20px;
+}
+.header-container {
+  height: 55px;
+  font-size: 18px;
+  font-family: "adelle-sans",Arial Narrow,Geneva,Lucida Grande,Helvetica,sans-serif;
+}  
+.the-header {
+  width: 100%;
+  position: fixed;
+  height: 55px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1e282d;
+  z-index: 100;
+  box-sizing: border-box;
+  padding: 0 20px;
+}  
+.logo {
+  margin: 0 10px;
+  font-size: 1.3rem;
+}
+.logo a {
+  text-decoration: none;
+  color: #bbc5ca;
+  padding-right: 10px;
+}
+.logo a:hover {
+  color: #1B58A5;
+}
+.spacer {
+  flex: 1;
+}
+.navigation-items {
+  display: none;
+}  
+@media (min-width: 768px) {
+  .navigation-items {
+    display: block;
+  }
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.nav-item {
+  margin: 0 10px;
+}
+a {
+  text-decoration: none;
+  color: #bbc5ca;
+}
+a:hover {
+  color: white;
+}
+a:active {
+  color: white;
+  font-weight: bold;
+}
+</style>
+</head>  
+<div class="header-container">
+  <header class="the-header">
+    <div class="logo">
+      <a href="index.html">
+        <img class="img" src="images/bodoozlelogo.png"/>
+      </a>
+    </div>
+    <div class="btn-group">
+      <nuxt-link to="/user"><button class="btn">Welcome</button></nuxt-link>
+      <nuxt-link to="/user/body"><button class="btn">Body</button></nuxt-link>
+      <nuxt-link to="/user/diet"><button class="btn">Diet</button></nuxt-link>
+      <nuxt-link to="/user/mind"><button class="btn">Mind</button></nuxt-link>
+    </div>
+    <div class="spacer"></div>
+    <div class="logo">
+      <nuxt-link to="/"><font-awesome-icon :icon="help" fixed-width /></nuxt-link>
+      <nuxt-link to="/"><font-awesome-icon :icon="settings" fixed-width /></nuxt-link>
+      <nuxt-link to="/"><font-awesome-icon :icon="user" fixed-width /></nuxt-link>
+    </div>
+  </header>
+</div>
+
+<script>
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { faFacebookF } from '@fortawesome/fontawesome-free-brands'
+import { faTwitter } from '@fortawesome/fontawesome-free-brands'
+import { faQuestionCircle } from '@fortawesome/fontawesome-free-solid'
+import { faUser } from '@fortawesome/fontawesome-free-solid'
+import { faCog } from '@fortawesome/fontawesome-free-solid'
+
+export default {
+  name: 'TopNavBar',
+  computed: {
+      fb () {
+          return faFacebookF
+      },
+      tw () {
+          return faTwitter
+      },
+      help () {
+          return faQuestionCircle
+      },
+      user () {
+          return faUser
+      },
+      settings () {
+          return faCog
+      }
+  },
+  components: {
+      FontAwesomeIcon
+  }
+}
+</script>
+
