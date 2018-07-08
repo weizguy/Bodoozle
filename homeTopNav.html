@@ -92,7 +92,16 @@ Modified (date, initials, reason):
 .nav-item a:hover {
   color: white;
 }
+.active {
+  color: white;
+  font-weight: bold;
+}
 </style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+ </script>
 </head>
 <body>
 <div class="header-container">
@@ -108,14 +117,45 @@ Modified (date, initials, reason):
         <li class="nav-item"><a href="features.html">Features</a></li>
         <li class="nav-item"><a href="partners.html">Partners</a></li>
         <li class="nav-item"><a href="pricing.html">Pricing</a></li>
-        <li class="nav-item"><a to="/user"><input type="button" class="button" value="Try it free"></a></li>
-        <li class="nav-item"><a href="/user">Login</a></li>
+        <li class="nav-item"><a to="/user/index.html"><input type="button" class="button" value="Try it free"></a></li>
+        <li class="nav-item"><a href="/user/index.html">Login</a></li>
         <li class="nav-item"><a href="support.html">Support</a></li>
       </ul>
     </div>
     <div class="spacer"></div>
   </header>
 </div>
+
+<script>
+$(document).ready(function() {
+ var link =$('.nav-item > a');
+
+  link.on('click', function(event) {
+    event.preventDefault();
+
+    link.removeClass('active');
+    $(this).addClass('active');
+
+    var openPage = this.innerText;
+    switch(openPage) {
+      case 'Features':
+        $('#main').load('features.html');
+        break;
+      case 'Partners':
+        $('#main').load('partners.html');
+        break;
+      case 'Pricing':
+        $('#main').load('pricing.html');
+        break;
+      case 'Login':
+        window.open('user/');
+        self.close();
+        break;
+    }
+  });
+});
+</script>
+
 </body>
 </html>
 

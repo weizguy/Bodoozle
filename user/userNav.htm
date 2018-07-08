@@ -1,0 +1,492 @@
+<!--WSS
+/******************************************************************************
+Program Name: userNav.html
+Description/Purpose: Side Navigation Bar for User
+Date Created: 07/04/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<style>
+
+#sideNav {
+  display: flex;
+  position: fixed;
+  width: 260px;
+  height: 100vh;
+  background-color: #6c6e74;
+  top: 56px;
+}
+
+#wrapper-250 {
+  width:260px;
+  top: 55px;
+}
+
+#slideLeft, #slideRight {
+  color: #fdfdfd;
+}
+#slideLeft:hover, #slideRight:hover {
+  color: #d2eaef;
+}
+
+#slideRight > .fas {
+  position: absolute;
+  top: 90%;
+  left: 15px;
+}
+#slideLeft > .fas {
+  position: absolute;
+  top: 90%;
+  left: 200px;
+}
+/* Reset */
+
+.accordion,
+.accordion ul,
+.accordion li,
+.accordion a,
+.accordion span {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.accordion li {
+  list-style: none;
+}
+
+/* Layout & Style */
+
+.accordion li > a {
+  display: block;
+  position: relative;
+  /*min-width: 110px;*/
+  padding: 0 10px 0 40px;
+  height: 32px;
+
+  color: #fdfdfd;
+  font: bold 12px/32px Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .35);
+
+  background: #6c6e74;
+  background: -moz-linear-gradient(top,  #6c6e74 0%, #4b4d51 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c6e74), color-stop(100%,#4b4d51));
+  background: -webkit-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: -o-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: -ms-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+}
+
+.accordion > li:hover > a,
+.accordion > li:target > a,
+.accordion > li > a.active {
+  color: #d2eaef;
+  text-shadow: 1px 1px 1px rgba(255,255,255, .2);
+  
+  /*background: url(../img/active.png) repeat-x;*/
+  background: #03457f;
+  background: -moz-linear-gradient(top,  #03457f 0%, #012c52 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#03457f), color-stop(100%,#012c52));
+  background: -webkit-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: -o-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: -ms-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: linear-gradient(top,  #03457f 0%,#012c52 100%); 
+}
+
+.accordion li > a span {
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 0 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  
+  font: normal bold 12px/18px Arial, sans-serif;
+  background: #404247;
+  
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+  box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+}
+
+.accordion > li:hover > a span,
+.accordion > li:target > a span,
+.accordion > li > a.active span {
+  color: #fdfdfd;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .35);
+  background: #3e5706;
+}
+
+/* Images */
+
+.accordion > li > a:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 24px;
+  height: 24px;
+  margin: 4px 8px;
+
+  background-repeat: no-repeat;
+  background-image: url(icons.png);
+  background-position: 0px 0px;
+}
+
+/* Sub Menu */
+
+.sub-menu li a {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+
+  background: #cecbcb;
+  border-bottom: 1px solid #b2a8a8;
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+}
+
+.sub-menu > li:hover > a,
+.sub-menu > li:active > a { 
+  background: #2F8DFF;
+  color: black; 
+}
+
+.subActive {
+  background: #2F8DFF!important;
+  color: black!important;   
+}
+
+.sub-menu li:last-child a { border: none; }
+
+.sub-menu li > a span {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+  background: transparent;
+  border: 1px solid #c9c9c9;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.sub-menu em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 14px;
+  color: #a6a6a6;
+  font: normal 10px/32px Arial, sans-serif;
+}
+
+/* Item Menu */
+
+.item-menu li a {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+
+  background: #e5e5e5;
+  border-bottom: 1px solid #c9c9c9;
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+}
+
+.item-menu li:hover a,
+.item-menu > li:active a { 
+  background: #ffcc80;
+  color: black; 
+}
+
+.itemActive {
+  background: #ffcc80!important;
+  color: black!important;   
+}
+
+.item-menu li:last-child a { border: none; }
+
+.item-menu li > a span {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+  background: transparent;
+  border: 1px solid #c9c9c9;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.item-menu em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 14px;
+  color: #a6a6a6;
+  font: normal 10px/32px Arial, sans-serif;
+}
+
+/* Functionality */
+
+.accordion li > .sub-menu,
+.sub-menu li > .item-menu {
+  display: none;
+}
+
+.accordion li:target > .sub-menu,
+.sub-menu li:target > .item-menu {
+  display: block;
+}
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+ </script>
+
+<div id="sideNav">
+  <div id="wrapper-250">
+    <div id="navleft">
+    <ul class="accordion">
+
+      <li id="body">
+        <a href="#body">Body</a>
+        <ul class="sub-menu">          
+          <li id="body-m">
+            <a href="#body-m">Measurements</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Left Upper Arm</a></li>          
+              <li><a href="#"><em>02</em>Right Upper Arm</a></li>
+              <li><a href="#"><em>03</em>Left Forearm</a></li>
+              <li><a href="#"><em>04</em>Right Forearm</a></li>          
+              <li><a href="#"><em>05</em>Left Thigh</a></li>          
+              <li><a href="#"><em>06</em>Right Thigh</a></li>          
+              <li><a href="#"><em>07</em>Left Calf</a></li>          
+              <li><a href="#"><em>08</em>Right Calf</a></li>          
+              <li><a href="#"><em>09</em>Neck</a></li>          
+              <li><a href="#"><em>10</em>Chest</a></li>          
+              <li><a href="#"><em>11</em>Waist</a></li>          
+              <li><a href="#"><em>12</em>Hips</a></li>
+            </ul>
+          </li>
+          <li id="body-w">
+            <a href="#body-w">Workouts</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Chest</a></li>          
+              <li><a href="#"><em>02</em>Shoulders</a></li>
+              <li><a href="#"><em>03</em>Arms</a></li>
+              <li><a href="#"><em>04</em>Back</a></li>         
+              <li><a href="#"><em>05</em>Legs</a></li>           
+              <li><a href="#"><em>06</em>Abs</a></li>          
+              <li><a href="#"><em>07</em>Cardio</a></li>
+            </ul>
+          </li>
+          <li id="body-p">
+            <a href="#body-p">Photos</a>
+            <ul class="item-menu">          
+          <li><a href="#"><em>01</em>Front</a></li>          
+          <li><a href="#"><em>02</em>Back</a></li>
+          <li><a href="#"><em>03</em>Side</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      
+      <li id="diet">
+        <a href="#diet">Diet</a>
+        <ul class="sub-menu">
+          <li id="diet-m">
+            <a href="#diet-m">Macros</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Carbs</a></li>          
+              <li><a href="#"><em>02</em>Protein</a></li>
+              <li><a href="#"><em>03</em>Fat</a></li>
+            </ul>
+          </li>
+          <li id="diet-d">
+            <a href="#diet-d">Diets</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Atkins</a></li>          
+              <li><a href="#"><em>02</em>Keto</a></li>
+              <li><a href="#"><em>03</em>USDA</a></li>
+              <li><a href="#"><em>04</em>Egg</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      
+      <li id="mind" >
+        <a href="#mind">Mind</a>
+        <ul class="sub-menu">
+          <li id="mind-i">
+            <a href="#mind-i">Inspiration</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Words</a></li>          
+              <li><a href="#"><em>02</em>Male Images</a></li>
+              <li><a href="#"><em>03</em>Female Images</a></li>
+            </ul>
+          </li>
+          <li id="mind-m">
+            <a href="#mind-m">Music</a>
+            <ul class="item-menu">          
+              <li><a href="#"><em>01</em>Mellow</a></li>          
+              <li><a href="#"><em>02</em>Rocking</a></li>
+              <li><a href="#"><em>03</em>Dance</a></li>
+              <li><a href="#"><em>04</em>Inspire</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      
+      <li id="reports" >
+        <a href="#reports">Reports</a>
+        <ul class="sub-menu">          
+          <li id="reports-b">
+            <a href="#reports-b">Body</a>
+            <ul class="item-menu">
+              <li><a href="#"><em>01</em>Balance Sheet Config</a></li>
+              <li><a href="#"><em>02</em>Income Statement Config</a></li>
+            </ul>
+          </li>
+          <li id="reports-d">
+            <a href="#reports-d">Diet</a>
+            <ul class="item-menu">
+              <li><a href="#"><em>01</em>Balance Sheet</a></li>
+              <li><a href="#"><em>02</em>General Ledger</a></li>
+              <li><a href="#"><em>03</em>Income Statement</a></li>
+              <li><a href="#"><em>04</em>Tax</a></li>
+              <li><a href="#"><em>05</em>Trial Balance</a></li>
+            </ul>
+          </li>
+          <li id="reports-m">
+            <a href="#reports-m">Mind</a>
+            <ul class="item-menu">
+              <li><a href="#"><em>01</em>Chart of Accounts</a></li>
+              <li><a href="#"><em>02</em>Journal Approval</a></li>
+              <li><a href="#"><em>03</em>Journal Entry</a></li>
+              <li><a href="#"><em>04</em>Summary Accounts</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    
+    </ul><br>
+  </div>
+    <div align="right">
+      <a href="#" id="slideLeft"><i class="fas fa-hand-point-left"></i></a>
+      <a href="#" id="slideRight"><i class="fas fa-hand-point-right"></i></a>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  var accordion_head = $('.accordion > li > a'),
+      accordion_body = $('.accordion li > .sub-menu'),
+      sub_head       = $('.accordion li > .sub-menu > li > a'),
+      sub_body       = $('.accordion li > .sub-menu li > .item-menu'),
+      item           = $('.accordion li > .sub-menu > li > .item-menu > li > a');
+  $('#slideRight').hide();
+
+  accordion_head.on('click', function(event) {       
+    event.preventDefault();
+
+    // Show and hide the tabs on click
+    if ($(this).attr('class') != 'active'){
+      accordion_body.slideUp('normal');
+      sub_body.slideUp('normal');
+      $(this).next().stop(true,true).slideToggle('normal');
+      accordion_head.removeClass('active');
+      sub_head.removeClass('subActive');
+      item.removeClass('itemActive');
+      $(this).addClass('active');
+    } 
+    else if ($(this).attr('class') == 'active'){
+     accordion_body.slideUp('normal');
+      sub_body.slideUp('normal');
+     accordion_head.removeClass('active');
+     item.removeClass('itemActive');
+     sub_head.removeClass('subActive');
+    }
+  });
+
+  sub_head.on('click', function(event) {       
+    event.preventDefault();
+
+    // Show and hide the tabs on click
+    if ($(this).attr('class') != 'subActive'){
+      sub_body.slideUp('normal');
+      $(this).next().stop(true,true).slideToggle('normal');
+      sub_head.removeClass('subActive');
+      item.removeClass('itemActive');
+      $(this).addClass('subActive');
+    } 
+    else if ($(this).attr('class') == 'subActive'){
+     sub_body.slideUp('normal');
+     sub_head.removeClass('subActive');
+     item.removeClass('itemActive');
+    }
+  });
+
+  // Navigation events for item-menu tabs
+  item.on('click', function(event) {
+    event.preventDefault();
+    console.log('item clicked');
+
+    item.removeClass('itemActive');
+    $(this).addClass('itemActive');
+
+    var x = this.innerText;
+    switch(x) {
+      case 'Item Master':
+        $('#main').load('../item/itemsearch.htm');
+        break;
+      case 'Customer Master':
+        $('#main').load('../customer/customersearch.htm');
+        break;
+    }
+  });
+
+  // Slide entire side menu left
+  $('#slideLeft').on('click', function(event) {
+    event.preventDefault();
+
+    $('#sideNav').css('width', '35px');
+    $('#main').css('left', '50px');
+    $('#navleft').hide();
+    $('#slideLeft').hide();
+    $('#slideRight').show();
+  });
+
+  // Slide entire side menu right
+  $('#slideRight').on('click', function(event) {
+    event.preventDefault();
+
+    $('#sideNav').css('width', '220px');
+    $('#main').css('left', '250px');
+    $('#navleft').show();
+    $('#slideRight').hide();
+    $('#slideLeft').show();
+  });
+
+});
+
+</script>
+

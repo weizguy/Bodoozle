@@ -1,8 +1,8 @@
 <!--WSS
 /******************************************************************************
-Program Name: insightsNav.htm
-Description/Purpose: Side Navigation Bar for Modules (UX Major Change)
-Date Created: 05/30/2018   
+Program Name: sideNav.htm
+Description/Purpose: Side Navigation Bar
+Date Created: 07/04/2018   
 Created by: Dave Weizenegger
 Called By: 
 Modified (date, initials, reason):
@@ -14,15 +14,15 @@ Modified (date, initials, reason):
 #sideNav {
   display: flex;
   position: fixed;
-  width: 220px;
+  width: 260px;
   height: 100vh;
   background-color: #6c6e74;
-  top: 41px;
+  top: 56px;
 }
 
 #wrapper-250 {
-  width:250px;
-  top: 41px;
+  width:260px;
+  top: 55px;
 }
 
 #slideLeft, #slideRight {
@@ -40,7 +40,7 @@ Modified (date, initials, reason):
 #slideLeft > .fas {
   position: absolute;
   top: 90%;
-  left: 200px;
+  left: 240px;
 }
 /* Reset */
 
@@ -235,124 +235,52 @@ Modified (date, initials, reason):
 <div id="navleft">
     <ul class="accordion">
 
-      <li id="ap" class="ap">
-        <a href="#ap">Accounts Payable</a>
+      <li id="m" class="m">
+        <a href="#m">Measurements</a>
         <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Adustments</a></li>          
-          <li><a href="#"><em>02</em>Adustment Usage</a></li>
-          <li><a href="#"><em>03</em>Bill Approval</a></li>
-          <li><a href="#"><em>04</em>Bills</a></li>          
-          <li><a href="#"><em>05</em>Check Format</a></li>          
-          <li><a href="#"><em>06</em>Create Payments</a></li>          
-          <li><a href="#"><em>07</em>Payment Approval</a></li>          
-          <li><a href="#"><em>08</em>Posted Payments</a></li>          
-          <li><a href="#"><em>09</em>Recurring Bills</a></li>          
-          <li><a href="#"><em>10</em>Select Bills to Pay</a></li>          
-          <li><a href="#"><em>11</em>Vendor Transactions</a></li>          
-          <li><a href="#"><em>12</em>Void Check</a></li>
+          <li><a href="#"><em>01</em>Left Upper Arm</a></li>          
+          <li><a href="#"><em>02</em>Right Upper Arm</a></li>
+          <li><a href="#"><em>03</em>Left Forearm</a></li>
+          <li><a href="#"><em>04</em>Right Forearm</a></li>          
+          <li><a href="#"><em>05</em>Left Thigh</a></li>          
+          <li><a href="#"><em>06</em>Right Thigh</a></li>          
+          <li><a href="#"><em>07</em>Left Calf</a></li>          
+          <li><a href="#"><em>08</em>Right Calf</a></li>          
+          <li><a href="#"><em>09</em>Neck</a></li>          
+          <li><a href="#"><em>10</em>Chest</a></li>          
+          <li><a href="#"><em>11</em>Waist</a></li>          
+          <li><a href="#"><em>12</em>Hips</a></li>
         </ul>
       </li>
       
-      <li id="ar" class="ar">
-        <a href="#ar">Accounts Receivable</a>
+      <li id="w" class="w">
+        <a href="#w">Workouts</a>
         <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Adustments</a></li>          
-          <li><a href="#"><em>02</em>Customer Payments</a></li>
-          <li><a href="#"><em>03</em>Customer Transactions</a></li>
-          <li><a href="#"><em>04</em>Manual Invoice</a></li>         
-          <li><a href="#"><em>05</em>Payment Entry</a></li>           
-          <li><a href="#"><em>06</em>Posted Payments</a></li>          
-          <li><a href="#"><em>07</em>Recurring Invoices</a></li>
+          <li><a href="#"><em>01</em>Chest</a></li>          
+          <li><a href="#"><em>02</em>Shoulders</a></li>
+          <li><a href="#"><em>03</em>Arms</a></li>
+          <li><a href="#"><em>04</em>Back</a></li>         
+          <li><a href="#"><em>05</em>Legs</a></li>           
+          <li><a href="#"><em>06</em>Abs</a></li>          
+          <li><a href="#"><em>07</em>Cardio</a></li>
         </ul>
       </li>
       
-      <li id="cs" >
-        <a href="#cs">Customer Service</a>
+      <li id="p" class="p">
+        <a href="#p">Pictures</a>
         <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>RMA</a></li>
-        </ul>
-      </li>
-      
-      <li id="financial" >
-        <a href="#financial">Financial</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Chart of Accounts</a></li>          
-          <li><a href="#"><em>02</em>Journal Approval</a></li>
-          <li><a href="#"><em>03</em>Journal Entry</a></li>
-          <li><a href="#"><em>04</em>Summary Accounts</a></li>
-        </ul>
-      </li>
-      
-      <li id="inventory" >
-        <a href="#inventory">Inventory</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Item Master</a></li>          
-          <li><a href="#"><em>02</em>Inventory Move</a></li>
-          <li><a href="#"><em>03</em>Misc Inventory Add</a></li>
-          <li><a href="#"><em>04</em>Misc Inventory Issue</a></li>
-          <li><a href="#"><em>05</em>Cycle Count</a></li>
-          <li><a href="#"><em>06</em>Transfer Order</a></li>
-          <li><a href="#"><em>07</em>VMI Locations</a></li>
-          <li><a href="#"><em>08</em>VMI Move</a></li>
-        </ul>
-      </li>
-      
-      <li id="logistics" >
-        <a href="#logistics">Logistics</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>PO Receiving</a></li>          
-          <li><a href="#"><em>02</em>RMA Receiving</a></li>
-          <li><a href="#"><em>03</em>Sales Order Shipping</a></li>          
-          <li><a href="#"><em>04</em>Transfer Order Receiving</a></li>          
-          <li><a href="#"><em>05</em>Transfer Order Shipping</a></li>
-          <li><a href="#"><em>06</em>VMI Receiving</a></li>
-          <li><a href="#"><em>07</em>VMI Return</a></li>
-        </ul>
-      </li>
-      
-      <li id="procurement" >
-        <a href="#procurement">Procurement</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>MRP Calendar</a></li>          
-          <li><a href="#"><em>02</em>Purchase Orders</a></li>
-          <li><a href="#"><em>03</em>Vendor Master</a></li>
-          <li><a href="#"><em>04</em>Vendor Item Search</a></li>
-        </ul>
-      </li>
-      
-      <li id="production" >
-        <a href="#production">Production</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Internal Jobs</a></li>          
-          <li><a href="#"><em>02</em>Outside Jobs</a></li>
-          <li><a href="#"><em>03</em>Service Center</a></li>
-        </ul>
-      </li>
-
-      <li id="sales" >
-        <a href="#sales">Sales</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Customer Item</a></li>          
-          <li><a href="#"><em>02</em>Customer Master</a></li>
-          <li><a href="#"><em>03</em>Quotes</a></li>
-          <li><a href="#"><em>04</em>Sales Orders</a></li>
-        </ul>
-      </li>
-      
-      <li id="support" >
-        <a href="#support">Support</a>
-        <ul class="sub-menu">          
-          <li><a href="#"><em>01</em>Help Requests</a></li>          
-          <li><a href="#"><em>02</em>Support Tickets</a></li>
+          <li><a href="#"><em>01</em>Front</a></li>          
+          <li><a href="#"><em>02</em>Back</a></li>
+          <li><a href="#"><em>03</em>Side</a></li>
         </ul>
       </li>
     
     </ul><br>
   </div>
-    <div align="right">
+    <!-- <div align="right">
       <a href="#" id="slideLeft"><i class="fas fa-hand-point-left"></i></a>
       <a href="#" id="slideRight"><i class="fas fa-hand-point-right"></i></a>
-    </div>
+    </div> -->
     
   </div>
 </div>
@@ -363,7 +291,7 @@ $(document).ready(function() {
       accordion_body = $('.accordion li > .sub-menu'),
       link           = $('.accordion li > .sub-menu > li > a'),
       linkli         = $('.accordion li > .sub-menu > li');
-  $('#slideRight').hide();
+  // $('#slideRight').hide();
 
   accordion_head.on('click', function(event) {       
     event.preventDefault();
@@ -412,27 +340,29 @@ $(document).ready(function() {
     }
   });
 
-  // Slide entire side menu left
-  $('#slideLeft').on('click', function(event) {
-    event.preventDefault();
+  // // Slide entire side menu left
+  // $('#slideLeft').on('click', function(event) {
+  //   event.preventDefault();
 
-    $('#sideNav').css('width', '35px');
-    $('#main').css('left', '50px');
-    $('#navleft').hide();
-    $('#slideLeft').hide();
-    $('#slideRight').show();
-  });
+  //   $('#sideNav').css('width', '35px');
+  //   $('#main').css('left', '50px');
+  //   $('#navleft').hide();
+  //   $('#wrapper-250').css('width', '35px');
+  //   $('#slideLeft').hide();
+  //   $('#slideRight').show();
+  // });
 
-  // Slide entire side menu right
-  $('#slideRight').on('click', function(event) {
-    event.preventDefault();
+  // // Slide entire side menu right
+  // $('#slideRight').on('click', function(event) {
+  //   event.preventDefault();
 
-    $('#sideNav').css('width', '220px');
-    $('#main').css('left', '250px');
-    $('#navleft').show();
-    $('#slideRight').hide();
-    $('#slideLeft').show();
-  });
+  //   $('#sideNav').css('width', '260px');
+  //   $('#main').css('left', '260px');
+  //   $('#navleft').show();
+  //   $('#wrapper-250').css('width', '260px');
+  //   $('#slideRight').hide();
+  //   $('#slideLeft').show();
+  // });
 
 });
 

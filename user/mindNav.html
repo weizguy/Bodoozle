@@ -1,0 +1,349 @@
+<!--WSS
+/******************************************************************************
+Program Name: sideNav.htm
+Description/Purpose: Side Navigation Bar
+Date Created: 07/04/2018   
+Created by: Dave Weizenegger
+Called By: 
+Modified (date, initials, reason):
+
+******************************************************************************/
+-->
+<style>
+
+#sideNav {
+  display: flex;
+  position: fixed;
+  width: 260px;
+  height: 100vh;
+  background-color: #6c6e74;
+  top: 56px;
+}
+
+#wrapper-250 {
+  width:260px;
+  top: 55px;
+}
+
+#slideLeft, #slideRight {
+  color: #fdfdfd;
+}
+#slideLeft:hover, #slideRight:hover {
+  color: #d2eaef;
+}
+
+#slideRight > .fas {
+  position: absolute;
+  top: 90%;
+  left: 15px;
+}
+#slideLeft > .fas {
+  position: absolute;
+  top: 90%;
+  left: 240px;
+}
+/* Reset */
+
+.accordion,
+.accordion ul,
+.accordion li,
+.accordion a,
+.accordion span {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.accordion li {
+  list-style: none;
+}
+
+/* Layout & Style */
+
+.accordion li > a {
+  display: block;
+  position: relative;
+  /*min-width: 110px;*/
+  padding: 0 10px 0 40px;
+  height: 32px;
+
+  color: #fdfdfd;
+  font: bold 12px/32px Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .35);
+
+  background: #6c6e74;
+  background: -moz-linear-gradient(top,  #6c6e74 0%, #4b4d51 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c6e74), color-stop(100%,#4b4d51));
+  background: -webkit-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: -o-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: -ms-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+  background: linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+}
+
+.accordion > li:hover > a,
+.accordion > li:target > a,
+.accordion > li > a.active {
+  color: #d2eaef;
+  text-shadow: 1px 1px 1px rgba(255,255,255, .2);
+  
+  background: #03457f;
+  background: -moz-linear-gradient(top,  #03457f 0%, #012c52 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#03457f), color-stop(100%,#012c52));
+  background: -webkit-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: -o-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: -ms-linear-gradient(top,  #03457f 0%,#012c52 100%);
+  background: linear-gradient(top,  #03457f 0%,#012c52 100%); 
+}
+
+.accordion li > a span {
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 0 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  
+  font: normal bold 12px/18px Arial, sans-serif;
+  background: #404247;
+  
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+  box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+}
+
+.accordion > li:hover > a span,
+.accordion > li:target > a span,
+.accordion > li > a.active span {
+  color: #fdfdfd;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .35);
+  background: #3e5706;
+}
+
+/* Images */
+
+.accordion > li > a:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 24px;
+  height: 24px;
+  margin: 4px 8px;
+
+  background-repeat: no-repeat;
+  background-image: url(icons.png);
+  background-position: 0px 0px;
+}
+
+.accordion li.ap > a:before { background-position: 0px 0px; }
+.accordion li.ap:hover > a:before,
+.accordion li.ap:target > a:before,
+.accordion li.ap > a.active:before { background-position: 0px -24px; }
+
+.accordion li.ar > a:before { background-position: -24px 0px; }
+.accordion li.ar:hover > a:before,
+.accordion li.ar:target > a:before,
+.accordion li.ar > a.active:before { background-position: -24px -24px; }
+
+.accordion li.cloud > a:before { background-position: -48px 0px; }
+.accordion li.cloud:hover > a:before,
+.accordion li.cloud:target > a:before,
+.accordion li.cloud > a.active:before { background-position: -48px -24px; }
+
+.accordion li.sign > a:before { background-position: -72px 0px; }
+.accordion li.sign:hover > a:before,
+.accordion li.sign:target > a:before,
+.accordion li.sign > a.active:before { background-position: -72px -24px; }
+
+/* Sub Menu */
+
+.sub-menu li a {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+
+  background: #e5e5e5;
+  border-bottom: 1px solid #c9c9c9;
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255, .1), 0px 1px 0px 0px rgba(0,0,0, .1);
+}
+
+.sub-menu li:hover a,
+.sub-menu > li:active a { 
+  background: #2F8DFF;
+  color: black; 
+}
+
+.subActive {
+  background: #2F8DFF!important;
+  color: black!important;   
+}
+
+.sub-menu li:last-child a { border: none; }
+
+.sub-menu li > a span {
+  color: #797979;
+  text-shadow: 1px 1px 0px rgba(255,255,255, .2);
+  background: transparent;
+  border: 1px solid #c9c9c9;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.sub-menu em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 14px;
+  color: #a6a6a6;
+  font: normal 10px/32px Arial, sans-serif;
+}
+
+/* Functionality */
+
+.accordion li > .sub-menu {
+  display: none;
+}
+
+.accordion li:target > .sub-menu {
+  display: block;
+}
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+ </script>
+
+<div id="sideNav">
+  <div id="wrapper-250">
+<div id="navleft">
+    <ul class="accordion">
+
+      <li id="i" class="i">
+        <a href="#i">Inspiration</a>
+        <ul class="sub-menu">          
+          <li><a href="#"><em>01</em>Words</a></li>          
+          <li><a href="#"><em>02</em>Male Images</a></li>
+          <li><a href="#"><em>03</em>Female Images</a></li>
+        </ul>
+      </li>
+      
+      <li id="m" class="m">
+        <a href="#m">Music</a>
+        <ul class="sub-menu">          
+          <li><a href="#"><em>01</em>Mellow</a></li>          
+          <li><a href="#"><em>02</em>Rocking</a></li>
+          <li><a href="#"><em>03</em>Dance</a></li>
+          <li><a href="#"><em>04</em>Inspire</a></li>      
+        </ul>
+      </li>
+    
+    </ul><br>
+  </div>
+    <!-- <div align="right">
+      <a href="#" id="slideLeft"><i class="fas fa-hand-point-left"></i></a>
+      <a href="#" id="slideRight"><i class="fas fa-hand-point-right"></i></a>
+    </div> -->
+    
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  var accordion_head = $('.accordion > li > a'),
+      accordion_body = $('.accordion li > .sub-menu'),
+      link           = $('.accordion li > .sub-menu > li > a'),
+      linkli         = $('.accordion li > .sub-menu > li');
+  // $('#slideRight').hide();
+
+  accordion_head.on('click', function(event) {       
+    event.preventDefault();
+
+    // Show and hide the tabs on click
+    if ($(this).attr('class') != 'active'){
+      accordion_body.slideUp('normal');
+      $(this).next().stop(true,true).slideToggle('normal');
+      accordion_head.removeClass('active');
+      link.removeClass('subActive');
+      $(this).addClass('active');
+    } 
+    else if ($(this).attr('class') == 'active'){
+     accordion_body.slideUp('normal');
+     accordion_head.removeClass('active');
+     link.removeClass('subActive');
+    }
+
+    // Navigation events for accordion_head tabs
+    // var y = this.innerText;
+    // switch(y) {
+    //  case 'Accounts Payable':
+    //    $('#main').load('');
+    //    break;
+    //  case 'Sales':
+    //    $('#main').load('');
+    //    break;
+    // }
+  });
+
+  // Navigation events for sub-menu tabs
+  link.on('click', function(event) {
+    event.preventDefault();
+
+    link.removeClass('subActive');
+    $(this).addClass('subActive');
+
+    var x = this.innerText.slice(2);
+    switch(x) {
+      case 'Item Master':
+        $('#main').load('../item/itemsearch.htm');
+        break;
+      case 'Customer Master':
+        $('#main').load('../customer/customersearch.htm');
+        break;
+    }
+  });
+
+  // // Slide entire side menu left
+  // $('#slideLeft').on('click', function(event) {
+  //   event.preventDefault();
+
+  //   $('#sideNav').css('width', '35px');
+  //   $('#main').css('left', '50px');
+  //   $('#navleft').hide();
+  //   $('#wrapper-250').css('width', '35px');
+  //   $('#slideLeft').hide();
+  //   $('#slideRight').show();
+  // });
+
+  // // Slide entire side menu right
+  // $('#slideRight').on('click', function(event) {
+  //   event.preventDefault();
+
+  //   $('#sideNav').css('width', '260px');
+  //   $('#main').css('left', '260px');
+  //   $('#navleft').show();
+  //   $('#wrapper-250').css('width', '260px');
+  //   $('#slideRight').hide();
+  //   $('#slideLeft').show();
+  // });
+
+});
+
+</script>
+

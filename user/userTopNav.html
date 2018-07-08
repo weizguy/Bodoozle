@@ -107,60 +107,73 @@ a:active {
   color: white;
   font-weight: bold;
 }
+.active {  
+  background-color: #1B58A5!important;
+  color: white!important;
+  font-weight: bold!important;
+}
 </style>
 </head>  
+<body>
 <div class="header-container">
   <header class="the-header">
     <div class="logo">
       <a href="index.html">
-        <img class="img" src="images/bodoozlelogo.png"/>
+        <img class="img" src="../images/bodoozlelogo.png"/>
       </a>
     </div>
     <div class="btn-group">
-      <nuxt-link to="/user"><button class="btn">Welcome</button></nuxt-link>
-      <nuxt-link to="/user/body"><button class="btn">Body</button></nuxt-link>
-      <nuxt-link to="/user/diet"><button class="btn">Diet</button></nuxt-link>
-      <nuxt-link to="/user/mind"><button class="btn">Mind</button></nuxt-link>
+      <a href="index.html"><button class="btn">Welcome</button></a>
+      <a href="body.html"><button class="btn">Body</button></a>
+      <a href="diet.html"><button class="btn">Diet</button></a>
+      <a href="mind.html"><button class="btn">Mind</button></a>
     </div>
     <div class="spacer"></div>
     <div class="logo">
-      <nuxt-link to="/"><font-awesome-icon :icon="help" fixed-width /></nuxt-link>
-      <nuxt-link to="/"><font-awesome-icon :icon="settings" fixed-width /></nuxt-link>
-      <nuxt-link to="/"><font-awesome-icon :icon="user" fixed-width /></nuxt-link>
+      <a href="../support/"><i class="fas fa-question-circle"></i></a>
+      <a href="../admin/settings/"><i class="fas fa-cog"></i></a>
+      <a href="../admin/user"><i class="fas fa-user"></i></a>
     </div>
   </header>
 </div>
 
 <script>
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import { faFacebookF } from '@fortawesome/fontawesome-free-brands'
-import { faTwitter } from '@fortawesome/fontawesome-free-brands'
-import { faQuestionCircle } from '@fortawesome/fontawesome-free-solid'
-import { faUser } from '@fortawesome/fontawesome-free-solid'
-import { faCog } from '@fortawesome/fontawesome-free-solid'
-
-export default {
-  name: 'TopNavBar',
-  computed: {
-      fb () {
-          return faFacebookF
-      },
-      tw () {
-          return faTwitter
-      },
-      help () {
-          return faQuestionCircle
-      },
-      user () {
-          return faUser
-      },
-      settings () {
-          return faCog
-      }
-  },
-  components: {
-      FontAwesomeIcon
-  }
-}
+    $(document).ready(function() {
+     var link =$('.btn-group > a > .btn');
+    
+      link.on('click', function(event) {
+        event.preventDefault();
+    
+        link.removeClass('active');
+        $(this).addClass('active');
+    
+        var openPage = this.innerText;
+        switch(openPage) {
+          case 'Welcome':
+            $('#main').load('welcome.html');
+	          $('#sideNav').css('visibility', 'hidden');
+            break;
+          case 'Body':
+            $('#main').load('body.html');
+	          $('#sideNav').load('bodyNav.html');
+	          $('#sideNav').css('visibility', 'visible');
+            break;
+          case 'Diet':
+            $('#main').load('diet.html');
+	          $('#sideNav').load('dietNav.html');
+	          $('#sideNav').css('visibility', 'visible');
+            break;
+          case 'Mind':
+            $('#main').load('mind.html');
+	          $('#sideNav').load('mindNav.html');
+	          $('#sideNav').css('visibility', 'visible');
+            break;
+          case 'Login':
+            window.open('user/', '_self');
+            break;
+        }
+      });
+    });
 </script>
-
+</body>
+</html>

@@ -1,8 +1,8 @@
 <!--WSS
 /******************************************************************************
-Program Name: main.htm
-Description/Purpose: Main page for (major UX Change)
-Date Created: 05/30/2018   
+Program Name: index.htm
+Description/Purpose: User page
+Date Created: 07/04/2018   
 Created by: Dave Weizenegger
 Called By: 
 Modified (date, initials, reason):
@@ -25,6 +25,7 @@ body {
   position: absolute;
   top: 45px;
   left: 225px;
+  width: 100%;
   overflow: auto;
   height: 99%;
  }
@@ -38,7 +39,7 @@ body {
 
 <script>
 $( document ).ready(function() {
-	$('#topNavBar').load('topNav.html');
+	$('#topNavBar').load('userTopNav.html');
 	$('#sideNav').load('sideNav.html');
 	$('#main').load('welcome.html');
 });
